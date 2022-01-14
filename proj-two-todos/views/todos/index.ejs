@@ -19,17 +19,22 @@
     <% if (todos.length) { %>
         <ul>
         <% todos.forEach(function(t) { %>
+            <li>
             <!-- <% //console.log(t.todo) %> -->
             <!-- <div><%=//t.todo%></div> -->
-            <li>
-                <%= t.todo %>
-                - <%= t.done ? 'done' : 'not done' %>
             <form
-            action="/todos/<%= t._id %>?_method=DELETE"
+            action="/todos/<%= t.id %>?_method=DELETE"
             class="delete-form"
             method="POST"
         >
         <button type="SUBMIT">X</button>
+            </form>
+     
+
+            
+                <%= t.todo %>
+                - <%= t.done ? 'done' : 'not done' %>
+
         </li>
 
         <% }) %>

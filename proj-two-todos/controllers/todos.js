@@ -18,9 +18,11 @@ function index(req, res) {
 }
 
 function deleteTodo(req, res) {
-    Todo.deleteOne({_id: req.params.todoId}, function (err, todoDoc) {
+    // console.log(req.params.id)
+    // not getting the specific ID that was clicked on
+    // currently deleting from top of list?
+    Todo.deleteOne(req.params.id)
     res.redirect("/todos")
-    });
 };
 
 function createTodo(req, res, next) {
