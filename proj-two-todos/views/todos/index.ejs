@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 assessment</title>
+</head>
+<body>
+    <h1>To Do List </h1>
+
+    <p>Add todo</p>
+    <form id="add-todo-form" method="POST" action="/todos">
+        <label id="input-text">Todo: </label>
+        <input type="text" required name="todo">
+        <button type="submit" >add to do</button>
+    </form>
+
+    <% if (todos.length) { %>
+        <ul>
+        <% todos.forEach(function(t) { %>
+            <!-- <% //console.log(t.todo) %> -->
+            <!-- <div><%=//t.todo%></div> -->
+            <li>
+                <%= t.todo %>
+                - <%= t.done ? 'done' : 'not done' %>
+            <form
+            action="/todos/<%= t._id %>?_method=DELETE"
+            class="delete-form"
+            method="POST"
+        >
+        <button type="SUBMIT">X</button>
+        </li>
+
+        <% }) %>
+    </ul>
+    <% } else { %>
+        <h3> there are no todos yet! </h3>
+    <% } %>
+</body>
+</html>
